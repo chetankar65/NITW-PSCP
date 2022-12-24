@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int i, j, k;
+	// divide into 3 parts and solve
+	int n;
+	cout << "Enter a number (b/w 3 and 1000): ";
+	cin >> n;
+	cout << endl;
+	
+	int total = (n + 1) + ((2*n) + 1) + (n + 1);
+	int m = n + 1;
+	for (i = 1; i <= n + 1; i++) {
+		for (int x = 1; x <= total; x++) {
+			if (i == 1) {
+				if (x <= n + 1 || x >= total - n) {
+					cout << ".";
+				} else {
+					cout << "_";
+				}
+			} else {
+				if (x <= m || x >= total - m + 1) {
+					cout << ".";
+				} else if (x == m + 1 || x == m + 2 || x == total - m + 2 || x == total - m + 3) {
+					cout << "_";		
+				} else {
+					cout << "/";
+				}
+			}
+
+		}
+
+		m--;
+
+		cout << endl;
+	}
+}
